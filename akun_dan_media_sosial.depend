@@ -26,3 +26,17 @@
 1702723766 c:\tel-u\tubes-std\child.h
 	<iostream>
 
+1702729844 source:/home/john/Documents/tubes-std/main.cpp
+	<iostream>
+	"parent.h"
+	"child.h"
+
+1702729844 /home/john/Documents/tubes-std/parent.h
+	<iostream>
+
+1702729844 /home/john/Documents/tubes-std/child.h
+	<iostream>
+
+1702729844 source:/home/john/Documents/tubes-std/parent.cpp
+	"parent.h"
+
