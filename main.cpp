@@ -1,10 +1,12 @@
 #include <iostream>
 #include "parent.h"
+#include "child.h"
 
 using namespace std;
 
 int main()
 {
+    // DATA PARENT START
     listParent LP;
     infotype_p dataParent;
     adr_p P;
@@ -52,6 +54,35 @@ int main()
     account = findElm_p(LP, "budi@gmail.com", "123Budi321");
     deleteElm_p(LP, account);
     showData_p(LP);
+    // DATA PARENT END
+
+    cout << "\n------------------------------------------------------------------\n" << endl;
+
+    // DATA CHILD START
+    listChild LC;
+    infotype_c dataChild;
+    adr_c C;
+    createList_c(LC);
+
+    showData_c(LC);
+
+    string dataID[] = {"C01", "C02", "C03"};
+    string dataSosmed[] = {"Instagram", "X", "Facebook"};
+    float dataRatings[] = {4.7, 4.8, 4.1};
+    int dataAgeRestriction[] = {12, 12, 12};
+    int n = sizeof(dataID) / sizeof(dataID[0]);
+
+    for (int i = 0; i < n; i++) {
+        dataChild.ID = dataID[i];
+        dataChild.name = dataSosmed[i];
+        dataChild.ratings = dataRatings[i];
+        dataChild.age_restriction = dataAgeRestriction[i];
+        C = createElm_c(dataChild);
+        insertLast_c(LC, C);
+    }
+
+    showData_c(LC);
+    // DATA CHILD END
 
     return 0;
 }

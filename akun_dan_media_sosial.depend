@@ -9,3 +9,20 @@
 1702718227 /home/john/Workspace/akun_dan_media_sosial/parent.h
 	<iostream>
 
+1702723823 source:c:\tel-u\tubes-std\main.cpp
+	<iostream>
+	"parent.h"
+	"child.h"
+
+1702720199 c:\tel-u\tubes-std\parent.h
+	<iostream>
+
+1702720199 source:c:\tel-u\tubes-std\parent.cpp
+	"parent.h"
+
+1702723999 source:c:\tel-u\tubes-std\child.cpp
+	"child.h"
+
+1702723766 c:\tel-u\tubes-std\child.h
+	<iostream>
+
