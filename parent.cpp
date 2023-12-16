@@ -126,7 +126,7 @@ void showData_p(listParent LP)
     else
     {
         adr_p curr = first(LP);
-    int i = 0;
+        int i = 0;
         cout << "\n========DATA_PARENT==========\n";
         while (curr != NULL)
         {
