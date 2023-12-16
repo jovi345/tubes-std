@@ -35,11 +35,15 @@ int main()
 
     showData_p(LP);
 
-    adr_p account = findElm_p(LP, "jane@gmail.com", "123Jane321");
+    adr_p account;
+    account = findElm_p(LP, "jane@gmail.com", "123Jane321");
     deleteElm_p(LP, account);
 
     // Menampilkan isi List Parent setelah penghapusan data Jane
     showData_p(LP);
+
+    // Mencari akun yang tidak ditemukan (Password salah)
+    account = findElm_p(LP, "jane@gmail.com", "123456");
 
     return 0;
 }

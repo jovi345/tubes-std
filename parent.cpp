@@ -49,7 +49,14 @@ adr_p findElm_p(listParent LP, string email, string password)
             }
             curr = next(curr);
         }
+
+
+        if (curr == NULL)
+        {
+            cout << "\nAkun tidak ditemukan\n";
+        }
     }
+
     return NULL;
 }
 
