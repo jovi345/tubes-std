@@ -45,5 +45,13 @@ int main()
     // Mencari akun yang tidak ditemukan (Password salah)
     account = findElm_p(LP, "jane@gmail.com", "123456");
 
+    account = findElm_p(LP, "john@gmail.com", "123456");
+    deleteElm_p(LP, account);
+    showData_p(LP);
+
+    account = findElm_p(LP, "budi@gmail.com", "123Budi321");
+    deleteElm_p(LP, account);
+    showData_p(LP);
+
     return 0;
 }

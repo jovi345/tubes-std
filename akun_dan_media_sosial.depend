@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1702716360 source:/home/john/Workspace/akun_dan_media_sosial/main.cpp
+1702719682 source:/home/john/Workspace/akun_dan_media_sosial/main.cpp
 	<iostream>
 	"parent.h"
 
-1702717139 source:/home/john/Workspace/akun_dan_media_sosial/parent.cpp
+1702719883 source:/home/john/Workspace/akun_dan_media_sosial/parent.cpp
 	"parent.h"
 
-1702715990 /home/john/Workspace/akun_dan_media_sosial/parent.h
+1702718227 /home/john/Workspace/akun_dan_media_sosial/parent.h
 	<iostream>
 

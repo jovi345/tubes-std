@@ -71,7 +71,6 @@ void deleteFirst_p(listParent &LP, adr_p P)
     {
         first(LP) = next(P);
     }
-    next(P) = NULL;
 }
 
 void deleteLast_p(listParent &LP, adr_p P)
@@ -102,7 +101,7 @@ void deleteAfter(listParent &LP, adr_p P)
 
 void deleteElm_p(listParent &LP, adr_p P)
 {
-    if (next(P) == NULL)
+    if (P != first(LP) && next(P) == NULL)
     {
         deleteLast_p(LP, P);
     }
@@ -114,6 +113,7 @@ void deleteElm_p(listParent &LP, adr_p P)
     {
         deleteAfter(LP, P);
     }
+    delete P;
 }
 
 void showData_p(listParent LP)
@@ -135,7 +135,7 @@ void showData_p(listParent LP)
             cout << "Username: " << curr->info.username << "\n";
             cout << "Email: "<< curr->info.email << "\n";
             cout << "Password: "<< curr->info.password << "\n";
-            cout << "Usia: " << curr->info.age << "\n";
+            cout << "Age (year): " << curr->info.age << "\n";
             curr = next(curr);
         }
         cout << "\n==============================\n";
