@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1702719918 source:/home/john/Workspace/akun_dan_media_sosial/main.cpp
+1702734443 source:/home/john/Workspace/akun_dan_media_sosial/main.cpp
 	<iostream>
 	"parent.h"
+	"child.h"
 
-1702719883 source:/home/john/Workspace/akun_dan_media_sosial/parent.cpp
+1702734443 source:/home/john/Workspace/akun_dan_media_sosial/parent.cpp
 	"parent.h"
 
 1702718227 /home/john/Workspace/akun_dan_media_sosial/parent.h
@@ -39,4 +40,10 @@
 
 1702729844 source:/home/john/Documents/tubes-std/parent.cpp
 	"parent.h"
+
+1702734443 source:/home/john/Workspace/akun_dan_media_sosial/child.cpp
+	"child.h"
+
+1702734443 /home/john/Workspace/akun_dan_media_sosial/child.h
+	<iostream>
 

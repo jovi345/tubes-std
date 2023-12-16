@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="child.cpp" />
 		<Unit filename="child.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="parent.cpp" />
