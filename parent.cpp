@@ -132,10 +132,10 @@ void showData_p(listParent LP)
         {
             i++;
             cout << "\nData ke-" << i << "\n";
-            cout << "Username: " << curr->info.username << "\n";
-            cout << "Email: "<< curr->info.email << "\n";
-            cout << "Password: "<< curr->info.password << "\n";
-            cout << "Age (year): " << curr->info.age << "\n";
+            cout << "Username   : " << curr->info.username << "\n";
+            cout << "Email      : "<< curr->info.email << "\n";
+            cout << "Password   : "<< curr->info.password << "\n";
+            cout << "Age (year) : " << curr->info.age << "\n";
             curr = next(curr);
         }
         cout << "\n==============================\n";

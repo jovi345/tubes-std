@@ -1,6 +1,7 @@
 #include <iostream>
 #include "parent.h"
 #include "child.h"
+#include "relasi.h"
 
 using namespace std;
 
@@ -37,23 +38,6 @@ int main()
 
     showData_p(LP);
 
-    adr_p account;
-    account = findElm_p(LP, "jane@gmail.com", "123Jane321");
-    deleteElm_p(LP, account);
-
-    // Menampilkan isi List Parent setelah penghapusan data Jane
-    showData_p(LP);
-
-    // Mencari akun yang tidak ditemukan (Password salah)
-    account = findElm_p(LP, "jane@gmail.com", "123456");
-
-    account = findElm_p(LP, "john@gmail.com", "123456");
-    deleteElm_p(LP, account);
-    showData_p(LP);
-
-    account = findElm_p(LP, "budi@gmail.com", "123Budi321");
-    deleteElm_p(LP, account);
-    showData_p(LP);
     // DATA PARENT END
 
     cout << "\n------------------------------------------------------------------\n" << endl;
@@ -83,6 +67,24 @@ int main()
 
     showData_c(LC);
     // DATA CHILD END
+
+    // DATA RELASI START
+    listRelasi LR;
+    createList_r(LR);
+
+    connect(LR, LP, LC, "john@gmail.com", "123456", "C01", "Instagram");
+    connect(LR, LP, LC, "john@gmail.com", "123456", "C02", "X");
+    connect(LR, LP, LC, "john@gmail.com", "123456", "C03", "Facebook");
+
+    connect(LR, LP, LC, "jane@gmail.com", "123Jane321", "C02", "X");
+    connect(LR, LP, LC, "jane@gmail.com", "123Jane321", "C03", "Facebook");
+
+    connect(LR, LP, LC, "budi@gmail.com", "123Budi321", "C01", "Instagram");
+
+    // Data parent beserta data child yang berelasi dengannya
+    showDataParentRelasiChild(LR, LP);
+
+    // DATA RELASI END
 
     return 0;
 }
