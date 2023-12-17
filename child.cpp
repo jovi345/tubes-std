@@ -31,35 +31,6 @@ void insertLast_c(listChild &LC, adr_c C)
     }
 }
 
-
-adr_c findElm_c(listChild LC, string ID, string name)
-{
-    if (first(LC) == NULL)
-    {
-        cout << "LIST SOSMED KOSONG" << endl;
-    }
-    else
-    {
-        adr_c curr = first(LC);
-        while (curr != NULL)
-        {
-            if (info(curr).ID == ID && info(curr).name  == name)
-            {
-                return curr;
-            }
-            curr = next(curr);
-        }
-
-
-        if (curr == NULL)
-        {
-            cout << "Sosmed tidak ditemukan" << endl;
-        }
-    }
-
-    return NULL;
-}
-
 void deleteFirst_c(listChild &LC, adr_c C)
 {
     C = first(LC);
@@ -114,6 +85,34 @@ void deleteElm_c(listChild &LC, adr_c C)
         deleteAfter(LC, C);
     }
     delete C;
+}
+
+adr_c findElm_c(listChild LC, string ID, string name)
+{
+    if (first(LC) == NULL)
+    {
+        cout << "LIST SOSMED KOSONG" << endl;
+    }
+    else
+    {
+        adr_c curr = first(LC);
+        while (curr != NULL)
+        {
+            if (info(curr).ID == ID && info(curr).name == name)
+            {
+                return curr;
+            }
+            curr = next(curr);
+        }
+
+
+        if (curr == NULL)
+        {
+            cout << "Sosmed tidak ditemukan" << endl;
+        }
+    }
+
+    return NULL;
 }
 
 void showData_c(listChild LC)

@@ -48,8 +48,6 @@ int main()
     adr_c C;
     createList_c(LC);
 
-    showData_c(LC);
-
     string dataID[] = {"C01", "C02", "C03"};
     string dataSosmed[] = {"Instagram", "X", "Facebook"};
     float dataRatings[] = {4.7, 4.8, 4.1};
@@ -66,7 +64,20 @@ int main()
     }
 
     showData_c(LC);
+
+    /* Delete Data Sosmed */
+    /*
+    cout << "\nDelete Elemen dengan Id: C02, dan name X\n" << endl;
+    C = findElm_c(LC, "C02", "X");
+    if (C != NULL)
+    {
+        deleteElm_c(LC, C);
+        showData_c(LC);
+    }
+    */
     // DATA CHILD END
+
+    cout << "\n------------------------------------------------------------------" << endl;
 
     // DATA RELASI START
     listRelasi LR;
