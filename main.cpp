@@ -40,44 +40,180 @@ int main()
 
     // DATA PARENT END
 
-    cout << "\n------------------------------------------------------------------\n" << endl;
+//-------------------------------------- //
 
-    // DATA CHILD START
+    // PARENT START
+        /*
+            .....
+        */
+    // PARENT END
+
+    // RELATION START
+        /*
+            .....
+        */
+    // RELATION END
+
+    // CHILD START
     listChild LC;
     infotype_c dataChild;
     adr_c C;
+    string idSosmed, nameSosmed;
+    float ratingsSosmed;
+    int ageRestriction, option;
     createList_c(LC);
+        /*
+            --- DATA INPUT CHILD ---
+            Id              : "C01", "C02", "C03"
+            name            : "Instagram", "X", "Facebook"
+            ratings         : 4.7, 4.8, 4.1
+            Age Restriction : 12, 12, 12
+        */
+    // CHILD END
 
-    string dataID[] = {"C01", "C02", "C03"};
-    string dataSosmed[] = {"Instagram", "X", "Facebook"};
-    float dataRatings[] = {4.7, 4.8, 4.1};
-    int dataAgeRestriction[] = {12, 12, 12};
-    int n = sizeof(dataID) / sizeof(dataID[0]);
+    // Nomor yg sudah selesai: 2, 5, 8, 11
 
-    for (int i = 0; i < n; i++) {
-        dataChild.ID = dataID[i];
-        dataChild.name = dataSosmed[i];
-        dataChild.ratings = dataRatings[i];
-        dataChild.age_restriction = dataAgeRestriction[i];
-        C = createElm_c(dataChild);
-        insertLast_c(LC, C);
-    }
-
-    showData_c(LC);
-
-    /* Delete Data Sosmed */
-    /*
-    cout << "\nDelete Elemen dengan Id: C02, dan name X\n" << endl;
-    C = findElm_c(LC, "C02", "X");
-    if (C != NULL)
+    option = menu();
+    while (option != 0)
     {
-        deleteElm_c(LC, C);
-        showData_c(LC);
+        switch (option)
+        {
+        case 1:
+            // NOT YET
+            cout << "Case 1" << endl;
+            option = menu();
+            break;
+        case 2:
+            cout << "ID Sosmed       : "; cin >> idSosmed;
+            cout << "Name Sosmed     : "; cin >> nameSosmed;
+            cout << "Rating          : "; cin >> ratingsSosmed;
+            cout << "Age Restriction : "; cin >> ageRestriction;
+            dataChild.ID = idSosmed;
+            dataChild.name = nameSosmed;
+            dataChild.ratings = ratingsSosmed;
+            dataChild.age_restriction = ageRestriction;
+            C = createElm_c(dataChild);
+            insertLast_c(LC, C);
+            cout << "[System][200] Success\n" << endl;
+            option = menu();
+            break;
+        case 3:
+            // NOT YET
+            cout << "Case 3" << endl;
+            option = menu();
+            break;
+        case 4:
+            // NOT YET
+            cout << "Case 4" << endl;
+            break;
+        case 5:
+            cout << "ID Sosmed yang ingin dihapus   : "; cin >> idSosmed;
+            cout << "Name Sosmed yang ingin dihapus : "; cin >> nameSosmed;
+            C = findElm_c(LC, idSosmed, nameSosmed);
+            if (C != NULL)
+            {
+                deleteElm_c(LC, C);
+                cout << "[System][200] Success\n" << endl;
+            }
+            option = menu();
+            break;
+        case 6:
+            // NOT YET
+            cout << "Case 6" << endl;
+            option = menu();
+            break;
+        case 7:
+            // NOT YET
+            cout << "Case 7" << endl;
+            option = menu();
+            break;
+        case 8:
+            cout << "ID Sosmed yang ingin dicari   : "; cin >> idSosmed;
+            cout << "Name Sosmed yang ingin dicari : "; cin >> nameSosmed;
+            C = findElm_c(LC, idSosmed, nameSosmed);
+            if (C != NULL)
+            {
+                cout << "==== Data Detail ====" << endl;
+                cout << "ID              : " << info(C).ID << endl;
+                cout << "Name            : " << info(C).name << endl;
+                cout << "Rating          : " << info(C).ratings << endl;
+                cout << "Age Restriction : \n" << info(C).age_restriction << endl;
+            }
+            else
+            {
+                cout << "[System][404] Error Request\n" << endl;
+            }
+            option = menu();
+            break;
+        case 9:
+            // NOT YET
+            cout << "Case 9" << endl;
+            option = menu();
+            break;
+        case 10:
+            // NOT YET
+            cout << "Case 10" << endl;
+            option = menu();
+            break;
+        case 11:
+            showData_c(LC);
+            option = menu();
+            break;
+        case 12:
+            // NOT YET
+            cout << "Case 12" << endl;
+            option = menu();
+            break;
+        case 13:
+            // NOT YET
+            cout << "Case 13" << endl;
+            option = menu();
+            break;
+        case 14:
+            // NOT YET
+            cout << "Case 14" << endl;
+            option = menu();
+            break;
+        case 15:
+            // NOT YET
+            cout << "Case 15" << endl;
+            option = menu();
+            break;
+        case 16:
+            // NOT YET
+            cout << "Case 16" << endl;
+            option = menu();
+            break;
+        case 17:
+            // NOT YET
+            cout << "Case 17" << endl;
+            option = menu();
+            break;
+        case 18:
+            // NOT YET
+            cout << "Case 18" << endl;
+            option = menu();
+            break;
+        case 19:
+            // NOT YET
+            cout << "Case 19" << endl;
+            option = menu();
+            break;
+        case 20:
+            // NOT YET
+            cout << "Case 20" << endl;
+            option = menu();
+            break;
+        case 0:
+            break;
+        default:
+            cout << "Invalid option, Please try again.\n" << endl;
+            option = menu();
+            break;
+        }
     }
-    */
-    // DATA CHILD END
 
-    cout << "\n------------------------------------------------------------------" << endl;
+    // ------------------------------------------------------------------- //
 
     // DATA RELASI START
     listRelasi LR;

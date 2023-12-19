@@ -15,8 +15,8 @@ typedef struct sosmed infotype_c;
 struct sosmed
 {
     string name, ID;
-    int age_restriction;
     float ratings;
+    int age_restriction;
 };
 
 struct elm_c
@@ -39,5 +39,6 @@ void deleteAfter(listChild &LC, adr_c C);
 void deleteElm_c(listChild &LC, adr_c C);
 adr_c findElm_c(listChild LC, string ID, string name);
 void showData_c(listChild LC);
+int menu();
 
 #endif // CHILD_H_INCLUDED
