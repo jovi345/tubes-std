@@ -127,7 +127,7 @@ void showData_p(listParent LP)
     {
         adr_p curr = first(LP);
         int i = 0;
-        cout << "\n========DATA_PARENT==========\n";
+        cout << "\n=======  DATA AKUN  =========";
         while (curr != NULL)
         {
             i++;
@@ -138,7 +138,7 @@ void showData_p(listParent LP)
             cout << "Age (year) : " << curr->info.age << "\n";
             curr = next(curr);
         }
-        cout << "\n==============================\n";
+        cout << "==============================\n\n";
     }
 }
 

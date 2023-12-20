@@ -46,10 +46,10 @@ void connect(listRelasi &LR, listParent LP, listChild LC, string email, string p
 void showDataParentRelasiChild(listRelasi LR, listParent LP)
 {
     adr_p P = first(LP);
-    cout << "\n==========DATA PARENT & CHILDNYA==========\n\n";
+    cout << "\n============ DATA AKUN & SOSMED ============\n" << endl;
     while (P != NULL)
     {
-        cout << info(P).email << " => [ ";
+        cout << info(P).username << " => [ ";
         adr_r R = first(LR);
         while (R != NULL)
         {
@@ -62,5 +62,5 @@ void showDataParentRelasiChild(listRelasi LR, listParent LP)
         cout << "]\n";
         P = next(P);
     }
-    cout << "\n===========================================\n";
+    cout << "\n===========================================\n" << endl;
 }

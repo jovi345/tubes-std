@@ -125,15 +125,15 @@ void showData_c(listChild LC)
     {
         adr_c curr = first(LC);
     int i = 0;
-        cout << "\n======== DATA_SOSMED =========";
+        cout << "\n======== DATA SOSMED =========";
         while (curr != NULL)
         {
             i++;
             cout << "\nData ke-" << i << endl;
             cout << "ID              : " << info(curr).ID << endl;
-            cout << "name            : "<< info(curr).name << endl;
-            cout << "ratings         : "<< info(curr).ratings << endl;
-            cout << "age restriction : " << info(curr).age_restriction << endl;
+            cout << "Name            : "<< info(curr).name << endl;
+            cout << "Ratings         : "<< info(curr).ratings << endl;
+            cout << "Age Restriction : " << info(curr).age_restriction << endl;
             curr = next(curr);
         }
         cout << "==============================\n" << endl;
@@ -153,12 +153,12 @@ int menu() {
     cout << "| 7.Mencari Data Akun                                       |" << endl;
     cout << "| 8.Mencari Data Sosmed                                     |" << endl;
     cout << "| 9.Mencari Relasi antara Akun dan Sosmed                   |" << endl;
-    cout << "| 10.Menampilkan Data Akun                                  |" << endl;
-    cout << "| 11.Menampilkan Data Sosmed                                |" << endl;
-    cout << "| 12.Menampilkan Data Sosmed berdasarkan Akun               |" << endl;
-    cout << "| 13.Menampilkan Data Akun berdasarkan Sosmed               |" << endl;
-    cout << "| 14.Menampilkan Data Akun dan Sosmed yang berelasi         |" << endl;
-    cout << "| 15.Menampilkan Data Sosmed dan Akun yang berelasi         |" << endl;
+    cout << "| 10.Show Data Akun                                         |" << endl;
+    cout << "| 11.Show Data Sosmed                                       |" << endl;
+    cout << "| 12.Show Data Sosmed berdasarkan Akun                      |" << endl;
+    cout << "| 13.Show Data Akun berdasarkan Sosmed                      |" << endl;
+    cout << "| 14.Show Data Akun dan Sosmed yang berelasi                |" << endl;
+    cout << "| 15.Show Data Sosmed dan Akun yang berelasi                |" << endl;
     cout << "| 16.Menghitung Jumlah Data Sosmed dari suatu Akun          |" << endl;
     cout << "| 17.Menghitung Jumlah Data Akun dari suatu Sosmed          |" << endl;
     cout << "| 18.Menghitung Jumlah Data Sosmed yang tidak memiliki Akun |" << endl;
