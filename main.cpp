@@ -67,7 +67,7 @@ int main()
             Email       : "john@gmail.com", "jane@gmail.com", "budi@gmail.com"
             Password    : "123456", "123Jane321", "123Budi321"
             ID Sosmed   : "C01", "C02", "C03"
-            Nama Sosmed : "Instagram", "X", "Facebook"
+            Nama Sosmed : "Instagram", "Telegram", "Facebook"
         */
     /** RELATION END **/
 
@@ -82,13 +82,13 @@ int main()
         /*
             --- DATA INPUT CHILD ---
             Id              : "C01", "C02", "C03"
-            name            : "Instagram", "X", "Facebook"
+            name            : "Instagram", "Telegram", "Facebook"
             ratings         : 4.7, 4.8, 4.1
             Age Restriction : 12, 12, 12
         */
     /** CHILD END **/
 
-    // Nomor yg sudah selesai: 1, 2, 3, 4, 5, 7, 8, 10, 11, 14
+    // Nomor yg sudah selesai: 1, 2, 3, 4, 5, 7, 8, 10, 11, 14, 15
 
     option = menu();
     while (option != 0)
@@ -124,13 +124,12 @@ int main()
             option = menu();
             break;
         case 3:
-            cout << "Masukkan data yang ingin direlasikan [Email(Akun), Password(Akun), ID(Sosmed), Name(Sosmed)" << endl;
+            cout << "Masukkan data yang ingin direlasikan [Email(Akun), Password(Akun), ID(Sosmed), Name(Sosmed)]" << endl;
             cout << "Email       : "; cin >> emailAkun;
             cout << "Password    : "; cin >> passwordAkun;
             cout << "ID Sosmed   : "; cin >> idSosmed;
             cout << "Name Sosmed : "; cin >> nameSosmed;
             connect(LR, LP, LC, emailAkun, passwordAkun, idSosmed, nameSosmed);
-            cout << "[System][200] Success\n" << endl;
             option = menu();
             break;
         case 4:
@@ -142,6 +141,10 @@ int main()
                 deleteElm_p(LP, P);
                 cout << "[System][200] Success\n" << endl;
             }
+            else
+            {
+                cout << "[System][404] Error Request\n" << endl;
+            }
             option = menu();
             break;
         case 5:
@@ -152,6 +155,10 @@ int main()
             {
                 deleteElm_c(LC, C);
                 cout << "[System][200] Success\n" << endl;
+            }
+            else
+            {
+                cout << "[System][404] Error Request\n" << endl;
             }
             option = menu();
             break;
@@ -226,8 +233,7 @@ int main()
             option = menu();
             break;
         case 15:
-            // NOT YET
-            cout << "Case 15" << endl;
+            showDataChildRelasiParent(LR, LC);
             option = menu();
             break;
         case 16:

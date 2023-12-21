@@ -40,6 +40,11 @@ void connect(listRelasi &LR, listParent LP, listChild LC, string email, string p
     {
         adr_r R = createElm_r(P, C);
         insertLast_r(LR, R);
+        cout << "[System][200] Success\n" << endl;
+    }
+    else
+    {
+        cout << "[System][404] error not found\n" << endl;
     }
 }
 
@@ -61,6 +66,28 @@ void showDataParentRelasiChild(listRelasi LR, listParent LP)
         }
         cout << "]\n";
         P = next(P);
+    }
+    cout << "\n===========================================\n" << endl;
+}
+
+void showDataChildRelasiParent(listRelasi LR, listChild LC)
+{
+    adr_c C = first(LC);
+    cout << "\n============ DATA SOSMED & AKUN ============\n" << endl;
+    while (C != NULL)
+    {
+        cout << info(C).name << " => [ ";
+        adr_r R = first(LR);
+        while (R != NULL)
+        {
+            if (child(R) == C)
+            {
+                cout << info(parent(R)).username << ", ";
+            }
+            R = next(R);
+        }
+        cout << "]\n";
+        C = next(C);
     }
     cout << "\n===========================================\n" << endl;
 }

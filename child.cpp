@@ -124,7 +124,7 @@ void showData_c(listChild LC)
     else
     {
         adr_c curr = first(LC);
-    int i = 0;
+        int i = 0;
         cout << "\n======== DATA SOSMED =========";
         while (curr != NULL)
         {
