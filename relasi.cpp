@@ -31,6 +31,11 @@ void insertLast_r(listRelasi &LR, adr_r R)
     }
 }
 
+void deleteElm_r(listRelasi &LR, adr_r R)
+{
+
+}
+
 void connect(listRelasi &LR, listParent LP, listChild LC, string email, string password, string ID, string name)
 {
     adr_p P = findElm_p(LP, email, password);
@@ -45,6 +50,34 @@ void connect(listRelasi &LR, listParent LP, listChild LC, string email, string p
     else
     {
         cout << "[System][404] error not found\n" << endl;
+    }
+}
+
+void disconnectThroughParent(listRelasi &LR, adr_p P)
+{
+    adr_r R = first(LR);
+    while (R != NULL)
+    {
+        if (parent(R) == P)
+        {
+            parent(R) = NULL;
+            child(R) = NULL;
+        }
+        R = next(R);
+    }
+}
+
+void disconnectThroughChild(listRelasi &LR, adr_c C)
+{
+    adr_r R = first(LR);
+    while (R != NULL)
+    {
+        if (child(R) == C)
+        {
+            parent(R) = NULL;
+            child(R) = NULL;
+        }
+        R = next(R);
     }
 }
 

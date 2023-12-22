@@ -1,4 +1,5 @@
 #include "parent.h"
+#include "relasi.h"
 
 void createList_p(listParent &LP)
 {

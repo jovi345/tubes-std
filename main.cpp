@@ -138,6 +138,12 @@ int main()
             P = findElm_p(LP, emailAkun, passwordAkun);
             if (P != NULL)
             {
+                adr_r R = first(LR);
+                while(R != NULL)
+                {
+                    disconnectThroughParent(LR, P);
+                    R = next(R);
+                }
                 deleteElm_p(LP, P);
                 cout << "[System][200] Success\n" << endl;
             }
@@ -153,6 +159,12 @@ int main()
             C = findElm_c(LC, idSosmed, nameSosmed);
             if (C != NULL)
             {
+                adr_r R = first(LR);
+                while (R != NULL)
+                {
+                    disconnectThroughChild(LR, C);
+                    R = next(R);
+                }
                 deleteElm_c(LC, C);
                 cout << "[System][200] Success\n" << endl;
             }
