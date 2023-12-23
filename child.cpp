@@ -54,7 +54,7 @@ void deleteLast_c(listChild &LC, adr_c C)
     next(C) = NULL;
 }
 
-void deleteAfter(listChild &LC, adr_c C)
+void deleteAfter_c(listChild &LC, adr_c C)
 {
     adr_c Prec = first(LC);
     while (next(Prec) != NULL)
@@ -82,7 +82,7 @@ void deleteElm_c(listChild &LC, adr_c C)
     }
     else if (next(C) != NULL && C != first(LC))
     {
-        deleteAfter(LC, C);
+        deleteAfter_c(LC, C);
     }
     delete C;
 }

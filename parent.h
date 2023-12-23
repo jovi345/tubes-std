@@ -34,7 +34,7 @@ adr_p createElm_p(infotype_p data);
 void insertLast_p(listParent &LP, adr_p P);
 void deleteFirst_p(listParent &LP, adr_p P);
 void deleteLast_p(listParent &LP, adr_p P);
-void deleteAfter(listParent &LP, adr_p Prec, adr_p P);
+void deleteAfter_p(listParent &LP, adr_p Prec, adr_p P);
 void deleteElm_p(listParent &LP, adr_p P);
 adr_p findElm_p(listParent LP, string username, string email);
 void showData_p(listParent LP);

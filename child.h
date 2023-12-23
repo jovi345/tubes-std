@@ -35,7 +35,7 @@ adr_c createElm_c(infotype_c data);
 void insertLast_c(listChild &LC, adr_c C);
 void deleteFirst_c(listChild &LC, adr_c C);
 void deleteLast_c(listChild &LC, adr_c C);
-void deleteAfter(listChild &LC, adr_c C);
+void deleteAfter_c(listChild &LC, adr_c C);
 void deleteElm_c(listChild &LC, adr_c C);
 adr_c findElm_c(listChild LC, string ID, string name);
 void showData_c(listChild LC);

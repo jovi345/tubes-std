@@ -7,42 +7,6 @@ using namespace std;
 
 int main()
 {
-    /* DATA PARENT START
-    listParent LP;
-    infotype_p dataParent;
-    adr_p P;
-    createList_p(LP);
-
-    showData_p(LP);
-
-    dataParent.email = "john@gmail.com";
-    dataParent.username= "John";
-    dataParent.password= "123456";
-    dataParent.age= 20;
-    P = createElm_p(dataParent);
-    insertLast_p(LP, P);
-
-    dataParent.email = "jane@gmail.com";
-    dataParent.username= "Jane";
-    dataParent.password= "123Jane321";
-    dataParent.age= 15;
-    P = createElm_p(dataParent);
-    insertLast_p(LP, P);
-
-    dataParent.email = "budi@gmail.com";
-    dataParent.username= "Budi";
-    dataParent.password= "123Budi321";
-    dataParent.age= 32;
-    P = createElm_p(dataParent);
-    insertLast_p(LP, P);
-
-    showData_p(LP);
-    DATA PARENT END */
-
-
-
-    // function menu ada di child.cpp
-
     /** PARENT START **/
     listParent LP;
     infotype_p dataParent;
@@ -62,6 +26,7 @@ int main()
     /** RELATION START **/
     listRelasi LR;
     createList_r(LR);
+    adr_r R;
         /*
             --- DATA INPUT RELATION ---
             Email       : "john@gmail.com", "jane@gmail.com", "budi@gmail.com"
@@ -88,7 +53,7 @@ int main()
         */
     /** CHILD END **/
 
-    // Nomor yg sudah selesai: 1, 2, 3, 4, 5, 7, 8, 10, 11, 14, 15
+    // Nomor yg sudah selesai: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14, 15
 
     option = menu();
     while (option != 0)
@@ -175,8 +140,19 @@ int main()
             option = menu();
             break;
         case 6:
-            // NOT YET
-            cout << "Case 6" << endl;
+            cout << "==== DATA RELASI ====" << endl;
+            cout << "Email Akun : "; cin >> emailAkun;
+            cout << "ID Sosmed : "; cin >> idSosmed;
+            R = findElm_r(LR, emailAkun, idSosmed);
+            if (R != NULL)
+            {
+                deleteElm_r(LR, R);
+                cout << "[System][200] Success\n" << endl;
+            }
+            else
+            {
+                cout << "[System][404] Error Request\n" << endl;
+            }
             option = menu();
             break;
         case 7:
@@ -218,8 +194,14 @@ int main()
             option = menu();
             break;
         case 9:
-            // NOT YET
-            cout << "Case 9" << endl;
+            cout << "==== DATA RELASI ====" << endl;
+            cout << "Email Akun : "; cin >> emailAkun;
+            cout << "ID Sosmed : "; cin >> idSosmed;
+            R = findElm_r(LR, emailAkun, idSosmed);
+            if (R != NULL)
+            {
+                cout << "\n" << emailAkun << " dan ID " << idSosmed << " memiliki relasi\n" << endl;
+            }
             option = menu();
             break;
         case 10:
@@ -281,27 +263,6 @@ int main()
             break;
         }
     }
-
-
-
-
-    // DATA RELASI START
-    /** listRelasi LR;
-    createList_r(LR);
-
-    connect(LR, LP, LC, "john@gmail.com", "123456", "C01", "Instagram");
-    connect(LR, LP, LC, "john@gmail.com", "123456", "C02", "X");
-    connect(LR, LP, LC, "john@gmail.com", "123456", "C03", "Facebook");
-
-    connect(LR, LP, LC, "jane@gmail.com", "123Jane321", "C02", "X");
-    connect(LR, LP, LC, "jane@gmail.com", "123Jane321", "C03", "Facebook");
-
-    connect(LR, LP, LC, "budi@gmail.com", "123Budi321", "C01", "Instagram");
-
-    // Data parent beserta data child yang berelasi dengannya
-    showDataParentRelasiChild(LR, LP); **/
-
-    // DATA RELASI END
 
     return 0;
 }

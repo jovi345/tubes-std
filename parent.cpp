@@ -84,7 +84,7 @@ void deleteLast_p(listParent &LP, adr_p P)
     next(P) = NULL;
 }
 
-void deleteAfter(listParent &LP, adr_p P)
+void deleteAfter_p(listParent &LP, adr_p P)
 {
     adr_p Prec = first(LP);
     while (next(Prec) != NULL)
@@ -112,7 +112,7 @@ void deleteElm_p(listParent &LP, adr_p P)
     }
     else if (next(P) != NULL && P != first(LP))
     {
-        deleteAfter(LP, P);
+        deleteAfter_p(LP, P);
     }
     delete P;
 }

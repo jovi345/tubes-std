@@ -27,7 +27,11 @@ struct listRelasi
 void createList_r(listRelasi &LR);
 adr_r createElm_r(adr_p P, adr_c C);
 void insertLast_r(listRelasi &LR, adr_r R);
+void deleteFirst_r(listRelasi &LR, adr_r R);
+void deleteLast_r(listRelasi &LR, adr_r R);
+void deleteAfter_r(listRelasi &LR, adr_r R);
 void deleteElm_r(listRelasi &LR, adr_r R);
+adr_r findElm_r(listRelasi &LR, string email, string ID);
 void connect(listRelasi &LR, listParent LP, listChild LC, string email, string password, string ID, string name);
 void disconnectThroughParent(listRelasi &LR, adr_p P);
 void disconnectThroughChild(listRelasi &LR, adr_c C);
