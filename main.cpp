@@ -53,7 +53,7 @@ int main()
         */
     /** CHILD END **/
 
-    // Nomor yg sudah selesai: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14, 15
+    // Nomor yg sudah selesai: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15
 
     option = menu();
     while (option != 0)
@@ -213,13 +213,13 @@ int main()
             option = menu();
             break;
         case 12:
-            // NOT YET
-            cout << "Case 12" << endl;
+            cout << "Email Akun : "; cin >> emailAkun;
+            showDataChildBasedOnParent(LR, LP, emailAkun);
             option = menu();
             break;
         case 13:
-            // NOT YET
-            cout << "Case 13" << endl;
+            cout << "ID Sosmed : "; cin >> idSosmed;
+            showDataParentBasedOnChild(LR, LC, idSosmed);
             option = menu();
             break;
         case 14:

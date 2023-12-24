@@ -35,6 +35,8 @@ adr_r findElm_r(listRelasi &LR, string email, string ID);
 void connect(listRelasi &LR, listParent LP, listChild LC, string email, string password, string ID, string name);
 void disconnectThroughParent(listRelasi &LR, adr_p P);
 void disconnectThroughChild(listRelasi &LR, adr_c C);
+void showDataChildBasedOnParent(listRelasi LR, listParent LP, string email);
+void showDataParentBasedOnChild(listRelasi LR, listChild LC, string ID);
 void showDataParentRelasiChild(listRelasi LR, listParent LP);
 void showDataChildRelasiParent(listRelasi LR, listChild LC);
 

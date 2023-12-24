@@ -166,6 +166,52 @@ void disconnectThroughChild(listRelasi &LR, adr_c C)
     }
 }
 
+void showDataChildBasedOnParent(listRelasi LR, listParent LP, string email)
+{
+    adr_p P = first(LP);
+    while (P != NULL)
+    {
+        if (info(P).email == email)
+        {
+            cout << info(P).username << " => [ ";
+            adr_r R = first(LR);
+            while (R != NULL)
+            {
+                if (parent(R) == P)
+                {
+                    cout << info(child(R)).name << ", ";
+                }
+                R = next(R);
+            }
+            cout << "]\n" << endl;
+        }
+        P = next(P);
+    }
+}
+
+void showDataParentBasedOnChild(listRelasi LR, listChild LC, string ID)
+{
+    adr_c C = first(LC);
+    while (C != NULL)
+    {
+        if (info(C).ID == ID)
+        {
+            cout << info(C).name << " => [ ";
+            adr_r R = first(LR);
+            while (R != NULL)
+            {
+                if (child(R) == C)
+                {
+                    cout << info(parent(R)).username << ", ";
+                }
+                R = next(R);
+            }
+            cout << "]\n" << endl;
+        }
+        C = next(C);
+    }
+}
+
 void showDataParentRelasiChild(listRelasi LR, listParent LP)
 {
     adr_p P = first(LP);
@@ -178,7 +224,7 @@ void showDataParentRelasiChild(listRelasi LR, listParent LP)
         {
             if (parent(R) == P)
             {
-                cout << R->child->info.name << ", ";
+                cout << info(child(R)).name << ", ";
             }
             R = next(R);
         }
