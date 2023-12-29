@@ -255,3 +255,52 @@ void showDataChildRelasiParent(listRelasi LR, listChild LC)
     }
     cout << "\n===========================================\n" << endl;
 }
+
+void countDataSosmedFromAkun(listRelasi LR, listParent LP, string usernameAkun)
+{
+    int sum = 0;
+    adr_p P = first(LP);
+    while (P != NULL)
+    {
+        if (info(P).username == usernameAkun)
+        {
+            cout << info(P).username << " => ";
+            adr_r R = first(LR);
+            while (R != NULL)
+            {
+                if (parent(R) == P)
+                {
+                    sum++;
+                }
+                R = next(R);
+            }
+            cout << sum << endl; cout << endl;
+        }
+        P = next(P);
+    }
+}
+
+void countDataAkunFromSosmed(listRelasi LR, listChild LC, string nameSosmed)
+{
+    int sum = 0;
+    adr_c C = first(LC);
+    while (C != NULL)
+    {
+        if (info(C).name == nameSosmed)
+        {
+            cout << info(C).name << " => ";
+            adr_r R = first(LR);
+            while (R != NULL)
+            {
+                if (child(R) == C)
+                {
+                    sum++;
+                }
+                R = next(R);
+            }
+            cout << sum << endl; cout << endl;
+        }
+        C = next(C);
+    }
+}
+

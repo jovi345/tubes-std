@@ -39,5 +39,7 @@ void showDataChildBasedOnParent(listRelasi LR, listParent LP, string email);
 void showDataParentBasedOnChild(listRelasi LR, listChild LC, string ID);
 void showDataParentRelasiChild(listRelasi LR, listParent LP);
 void showDataChildRelasiParent(listRelasi LR, listChild LC);
+void countDataSosmedFromAkun(listRelasi LR, listParent LP, string usernameAkun);
+void countDataAkunFromSosmed(listRelasi LR, listChild LC, string nameSosmed);
 
 #endif // RELASI_H_INCLUDED

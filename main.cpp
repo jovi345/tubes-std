@@ -53,7 +53,7 @@ int main()
         */
     /** CHILD END **/
 
-    // Nomor yg sudah selesai: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15
+    // Nomor yg sudah selesai: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 
     option = menu();
     while (option != 0)
@@ -231,13 +231,13 @@ int main()
             option = menu();
             break;
         case 16:
-            // NOT YET
-            cout << "Case 16" << endl;
+            cout << "Masukkan Username Akun : "; cin >> usernameAkun;
+            countDataSosmedFromAkun(LR, LP, usernameAkun);
             option = menu();
             break;
         case 17:
-            // NOT YET
-            cout << "Case 17" << endl;
+            cout << "Masukkan Nama Sosmed : "; cin >> nameSosmed;
+            countDataAkunFromSosmed(LR, LC, nameSosmed);
             option = menu();
             break;
         case 18:
