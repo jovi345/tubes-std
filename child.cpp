@@ -87,7 +87,7 @@ void deleteElm_c(listChild &LC, adr_c C)
     delete C;
 }
 
-adr_c findElm_c(listChild LC, string ID, string name)
+adr_c findElm_c(listChild LC, string name)
 {
     if (first(LC) == NULL)
     {
@@ -98,7 +98,7 @@ adr_c findElm_c(listChild LC, string ID, string name)
         adr_c curr = first(LC);
         while (curr != NULL)
         {
-            if (info(curr).ID == ID && info(curr).name == name)
+            if (info(curr).name == name)
             {
                 return curr;
             }

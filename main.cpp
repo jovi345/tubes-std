@@ -92,9 +92,10 @@ int main()
             cout << "Masukkan data yang ingin direlasikan [Email(Akun), Password(Akun), ID(Sosmed), Name(Sosmed)]" << endl;
             cout << "Email       : "; cin >> emailAkun;
             cout << "Password    : "; cin >> passwordAkun;
-            cout << "ID Sosmed   : "; cin >> idSosmed;
             cout << "Name Sosmed : "; cin >> nameSosmed;
-            connect(LR, LP, LC, emailAkun, passwordAkun, idSosmed, nameSosmed);
+            P = findElm_p(LP, emailAkun, passwordAkun);
+            C = findElm_c(LC, nameSosmed);
+            connect(LR, P, C);
             option = menu();
             break;
         case 4:
@@ -119,9 +120,8 @@ int main()
             option = menu();
             break;
         case 5:
-            cout << "ID Sosmed yang ingin dihapus   : "; cin >> idSosmed;
             cout << "Nama Sosmed yang ingin dihapus : "; cin >> nameSosmed;
-            C = findElm_c(LC, idSosmed, nameSosmed);
+            C = findElm_c(LC, nameSosmed);
             if (C != NULL)
             {
                 adr_r R = first(LR);
@@ -176,9 +176,8 @@ int main()
             break;
         case 8:
             cout << "==== DATA SOSMED ====" << endl;
-            cout << "ID Sosmed yang ingin dicari   : "; cin >> idSosmed;
             cout << "Nama Sosmed yang ingin dicari : "; cin >> nameSosmed;
-            C = findElm_c(LC, idSosmed, nameSosmed);
+            C = findElm_c(LC, nameSosmed);
             if (C != NULL)
             {
                 cout << "==== Data Detail ====" << endl;

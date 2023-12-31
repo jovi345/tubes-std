@@ -32,7 +32,7 @@ void deleteLast_r(listRelasi &LR, adr_r R);
 void deleteAfter_r(listRelasi &LR, adr_r R);
 void deleteElm_r(listRelasi &LR, adr_r R);
 adr_r findElm_r(listRelasi &LR, string email, string ID);
-void connect(listRelasi &LR, listParent LP, listChild LC, string email, string password, string ID, string name);
+void connect(listRelasi &LR, adr_p P, adr_c C);
 void disconnectThroughParent(listRelasi &LR, adr_p P);
 void disconnectThroughChild(listRelasi &LR, adr_c C);
 void showDataChildBasedOnParent(listRelasi LR, listParent LP, string email);

@@ -121,11 +121,8 @@ adr_r findElm_r(listRelasi &LR, string email, string ID)
     return NULL;
 }
 
-void connect(listRelasi &LR, listParent LP, listChild LC, string email, string password, string ID, string name)
+void connect(listRelasi &LR, adr_p P, adr_c C)
 {
-    adr_p P = findElm_p(LP, email, password);
-    adr_c C = findElm_c(LC, ID, name);
-
     if (P != NULL && C != NULL)
     {
         adr_r R = createElm_r(P, C);
@@ -303,4 +300,3 @@ void countDataAkunFromSosmed(listRelasi LR, listChild LC, string nameSosmed)
         C = next(C);
     }
 }
-

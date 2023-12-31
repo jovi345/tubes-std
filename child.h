@@ -37,7 +37,7 @@ void deleteFirst_c(listChild &LC, adr_c C);
 void deleteLast_c(listChild &LC, adr_c C);
 void deleteAfter_c(listChild &LC, adr_c C);
 void deleteElm_c(listChild &LC, adr_c C);
-adr_c findElm_c(listChild LC, string ID, string name);
+adr_c findElm_c(listChild LC, string name);
 void showData_c(listChild LC);
 int menu();
 
