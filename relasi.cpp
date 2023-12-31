@@ -300,3 +300,14 @@ void countDataAkunFromSosmed(listRelasi LR, listChild LC, string nameSosmed)
         C = next(C);
     }
 }
+
+void editRelasiSosmedFromAkun(adr_r R, adr_c C)
+{
+    child(R) = C;
+}
+
+
+void editRelasiAkunFromSosmed(adr_r R, adr_p P)
+{
+    parent(R) = P;
+}

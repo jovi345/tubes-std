@@ -41,5 +41,7 @@ void showDataParentRelasiChild(listRelasi LR, listParent LP);
 void showDataChildRelasiParent(listRelasi LR, listChild LC);
 void countDataSosmedFromAkun(listRelasi LR, listParent LP, string usernameAkun);
 void countDataAkunFromSosmed(listRelasi LR, listChild LC, string nameSosmed);
+void editRelasiSosmedFromAkun(adr_r R, adr_c C);
+void editRelasiAkunFromSosmed(adr_r R, adr_p P);
 
 #endif // RELASI_H_INCLUDED

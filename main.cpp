@@ -251,7 +251,45 @@ int main()
             break;
         case 20:
             // NOT YET
+            int option_2;
             cout << "Case 20" << endl;
+
+            cout << "Masukkan info untuk mencari relasi yang ingin Anda ubah\n";
+            cout << "Masukkan Email: "; cin >> emailAkun;
+            cout << "Masukkan ID Sosmed: "; cin >> idSosmed;
+            R = findElm_r(LR, emailAkun, idSosmed);
+
+            if (R == NULL)
+            {
+                cout << "Pastikan data yang Anda masukkan sudah benar!\n\n";
+                option = menu();
+                break;
+            }
+
+            cout << "Pilih menu berikut\n";
+            cout << "1. Ganti Relasi Akun dengan Sosmed tertentu\n";
+            cout << "2. Ganti Relasi Sosmed dengan Akun tertentu\n";
+            cout << "Pilih menu: "; cin >> option_2;
+
+            if (option_2 == 1)
+            {
+                cout << "Nama Sosmed: "; cin >> nameSosmed;
+                C = findElm_c(LC, nameSosmed);
+                editRelasiSosmedFromAkun(R, C);
+            }
+            else if (option_2 == 2)
+            {
+                cout << "Masukkan info Akun\n";
+                cout << "Email: "; cin >> emailAkun;
+                cout << "Masukkan Password Akun: "; cin >> passwordAkun;
+                P = findElm_p(LP, emailAkun, passwordAkun);
+                editRelasiAkunFromSosmed(R, P);
+            }
+            else
+            {
+                cout << "\nINVALID\n";
+            }
+
             option = menu();
             break;
         case 0:
