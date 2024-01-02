@@ -89,7 +89,7 @@ int main()
             option = menu();
             break;
         case 3:
-            cout << "Masukkan data yang ingin direlasikan [Email(Akun), Password(Akun), ID(Sosmed), Name(Sosmed)]" << endl;
+            cout << "Masukkan data yang ingin direlasikan [Email(Akun), Password(Akun), Name(Sosmed)]" << endl;
             cout << "Email       : "; cin >> emailAkun;
             cout << "Password    : "; cin >> passwordAkun;
             cout << "Name Sosmed : "; cin >> nameSosmed;
@@ -240,20 +240,15 @@ int main()
             option = menu();
             break;
         case 18:
-            // NOT YET
-            cout << "Case 18" << endl;
+            countDataSosmedNoAkun(LR, LC);
             option = menu();
             break;
         case 19:
-            // NOT YET
-            cout << "Case 19" << endl;
+            countDataAkunNoSosmed(LR, LP);
             option = menu();
             break;
         case 20:
-            // NOT YET
             int option_2;
-            cout << "Case 20" << endl;
-
             cout << "Masukkan info untuk mencari relasi yang ingin Anda ubah\n";
             cout << "Masukkan Email: "; cin >> emailAkun;
             cout << "Masukkan ID Sosmed: "; cin >> idSosmed;

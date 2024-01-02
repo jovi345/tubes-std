@@ -255,7 +255,7 @@ void showDataChildRelasiParent(listRelasi LR, listChild LC)
 
 void countDataSosmedFromAkun(listRelasi LR, listParent LP, string usernameAkun)
 {
-    int sum = 0;
+    int countSosmed = 0;
     adr_p P = first(LP);
     while (P != NULL)
     {
@@ -267,11 +267,11 @@ void countDataSosmedFromAkun(listRelasi LR, listParent LP, string usernameAkun)
             {
                 if (parent(R) == P)
                 {
-                    sum++;
+                    countSosmed++;
                 }
                 R = next(R);
             }
-            cout << sum << endl; cout << endl;
+            cout << countSosmed << endl; cout << endl;
         }
         P = next(P);
     }
@@ -279,7 +279,7 @@ void countDataSosmedFromAkun(listRelasi LR, listParent LP, string usernameAkun)
 
 void countDataAkunFromSosmed(listRelasi LR, listChild LC, string nameSosmed)
 {
-    int sum = 0;
+    int countAkun = 0;
     adr_c C = first(LC);
     while (C != NULL)
     {
@@ -291,14 +291,74 @@ void countDataAkunFromSosmed(listRelasi LR, listChild LC, string nameSosmed)
             {
                 if (child(R) == C)
                 {
-                    sum++;
+                    countAkun++;
                 }
                 R = next(R);
             }
-            cout << sum << endl; cout << endl;
+            cout << countAkun << endl; cout << endl;
         }
         C = next(C);
     }
+}
+
+void countDataSosmedNoAkun(listRelasi LR, listChild LC)
+{
+    adr_c C = first(LC);
+    bool flag = false;
+    int countSosmed = 0;
+
+    cout << "Total => ";
+    while (C != NULL)
+    {
+        adr_r R = first(LR);
+        while (R != NULL && !flag)
+        {
+            if (child(R) == C)
+            {
+                flag = true;
+            }
+            R = next(R);
+        }
+
+        if (!flag)
+        {
+            countSosmed++;
+        }
+
+        flag = false;
+        C = next(C);
+    }
+    cout << countSosmed << " sosmed tidak memiliki akun.\n" << endl;
+}
+
+void countDataAkunNoSosmed(listRelasi LR, listParent LP)
+{
+    adr_p P = first(LP);
+    bool flag = false;
+    int countAkun = 0;
+
+    cout << "Total => ";
+    while (P != NULL)
+    {
+        adr_r R = first(LR);
+        while (R != NULL && !flag)
+        {
+            if (parent(R) == P)
+            {
+                flag = true;
+            }
+            R = next(R);
+        }
+
+        if (!flag)
+        {
+            countAkun++;
+        }
+
+        flag = false;
+        P = next(P);
+    }
+    cout << countAkun << " akun tidak memiliki sosmed.\n" << endl;
 }
 
 void editRelasiSosmedFromAkun(adr_r R, adr_c C)
