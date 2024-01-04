@@ -245,7 +245,7 @@ int main()
             cout << "Masukkan Nama Sosmed : "; cin >> nameSosmed;
             C = findElm_c(LC, nameSosmed);
             total = countDataAkunFromSosmed(LR, C);
-            cout << info(C).name << " memiliki " << total << " akun pengguna\n";
+            cout << info(C).name << " memiliki " << total << " pengguna\n";
             option = menu();
             break;
         case 18:

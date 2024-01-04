@@ -133,7 +133,7 @@ void connect(listRelasi &LR, adr_p P, adr_c C)
         }
         else
         {
-            cout << "[System][400] Error: Age Restriction\n";
+            cout << "[System][400] Error: Umur user tidak mencukupi untuk mengakses sosmed ini\n";
         }
     }
     else
@@ -172,6 +172,8 @@ void disconnectThroughChild(listRelasi &LR, adr_c C)
 
 void showDataChildBasedOnParent(listRelasi LR, adr_p P)
 {
+    if (!P) return;
+
     adr_r R = first(LR);
     cout << info(P).username << " => [ ";
     while (R != NULL)
@@ -187,6 +189,9 @@ void showDataChildBasedOnParent(listRelasi LR, adr_p P)
 
 void showDataParentBasedOnChild(listRelasi LR, adr_c C)
 {
+    if (!C) return;
+
+
     adr_r R = first(LR);
     cout << info(C).name << " => [ ";
     while (R != NULL)
@@ -204,19 +209,42 @@ void showDataParentRelasiChild(listRelasi LR, listParent LP)
 {
     adr_p P = first(LP);
     cout << "\n============ DATA AKUN & SOSMED ===========\n" << endl;
+
+    cout << "+-------------------------------------------------------+";
+    cout << "\n| No.\tEmail\t\tSosmed\t\t\t\t|";
+    cout << "\n+-------------------------------------------------------+\n";
+
+    int i = 0;
     while (P != NULL)
     {
-        cout << info(P).username << " => [ ";
+        i++;
+        cout << "| " << i << ".\t";
+        cout << info(P).email << "\t";
         adr_r R = first(LR);
+
+        int t = 0; // Variabel t hanya untuk membantu pembuatan layout table
+
         while (R != NULL)
         {
             if (parent(R) == P)
             {
-                cout << info(child(R)).name << ", ";
+                cout << info(child(R)).name << " ";
+                t++;
             }
             R = next(R);
         }
-        cout << "]\n";
+
+        // Loop ini hanya untuk pembuatan layout table
+        // Awal
+        while (t != 4)
+        {
+            cout << "\t";
+            t++;
+        }
+        cout << "|";
+        cout << "\n+-------------------------------------------------------+\n";
+        // Akhir
+
         P = next(P);
     }
     cout << "\n===========================================\n" << endl;
