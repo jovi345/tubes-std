@@ -93,7 +93,7 @@ void deleteElm_r(listRelasi &LR, adr_r R)
     delete R;
 }
 
-adr_r findElm_r(listRelasi &LR, string email, string ID)
+adr_r findElm_r(listRelasi &LR, string email, string name)
 {
     if (first(LR) == NULL)
     {
@@ -104,7 +104,7 @@ adr_r findElm_r(listRelasi &LR, string email, string ID)
         adr_r curr = first(LR);
         while (curr != NULL)
         {
-            if (info(parent(curr)).email == email && info(child(curr)).ID == ID)
+            if (info(parent(curr)).email == email && info(child(curr)).name == name)
             {
                 return curr;
             }
@@ -114,7 +114,7 @@ adr_r findElm_r(listRelasi &LR, string email, string ID)
 
         if (curr == NULL)
         {
-            cout << "\n" << email << " dan ID " << ID << " tidak memiliki relasi\n" << endl;
+            cout << "\n" << email << " dan " << name << " tidak memiliki relasi\n" << endl;
         }
     }
 
@@ -125,13 +125,20 @@ void connect(listRelasi &LR, adr_p P, adr_c C)
 {
     if (P != NULL && C != NULL)
     {
-        adr_r R = createElm_r(P, C);
-        insertLast_r(LR, R);
-        cout << "[System][200] Success\n" << endl;
+        if (info(P).age >= info(C).age_restriction)
+        {
+            adr_r R = createElm_r(P, C);
+            insertLast_r(LR, R);
+            cout << "[System][200] Successfully Connected\n";
+        }
+        else
+        {
+            cout << "[System][400] Error: Age Restriction\n";
+        }
     }
     else
     {
-        cout << "[System][404] error not found\n" << endl;
+        cout << "[System][404] Error: Account Not Found\n" << endl;
     }
 }
 
@@ -163,50 +170,34 @@ void disconnectThroughChild(listRelasi &LR, adr_c C)
     }
 }
 
-void showDataChildBasedOnParent(listRelasi LR, listParent LP, string email)
+void showDataChildBasedOnParent(listRelasi LR, adr_p P)
 {
-    adr_p P = first(LP);
-    while (P != NULL)
+    adr_r R = first(LR);
+    cout << info(P).username << " => [ ";
+    while (R != NULL)
     {
-        if (info(P).email == email)
+        if (parent(R) == P)
         {
-            cout << info(P).username << " => [ ";
-            adr_r R = first(LR);
-            while (R != NULL)
-            {
-                if (parent(R) == P)
-                {
-                    cout << info(child(R)).name << ", ";
-                }
-                R = next(R);
-            }
-            cout << "]\n" << endl;
+            cout << info(child(R)).name << ", ";
         }
-        P = next(P);
+        R = next(R);
     }
+    cout << " ]\n";
 }
 
-void showDataParentBasedOnChild(listRelasi LR, listChild LC, string ID)
+void showDataParentBasedOnChild(listRelasi LR, adr_c C)
 {
-    adr_c C = first(LC);
-    while (C != NULL)
+    adr_r R = first(LR);
+    cout << info(C).name << " => [ ";
+    while (R != NULL)
     {
-        if (info(C).ID == ID)
+        if (child(R) == C)
         {
-            cout << info(C).name << " => [ ";
-            adr_r R = first(LR);
-            while (R != NULL)
-            {
-                if (child(R) == C)
-                {
-                    cout << info(parent(R)).username << ", ";
-                }
-                R = next(R);
-            }
-            cout << "]\n" << endl;
+            cout << info(parent(R)).username << ", ";
         }
-        C = next(C);
+        R = next(R);
     }
+    cout << " ]\n";
 }
 
 void showDataParentRelasiChild(listRelasi LR, listParent LP)
@@ -253,52 +244,35 @@ void showDataChildRelasiParent(listRelasi LR, listChild LC)
     cout << "\n===========================================\n" << endl;
 }
 
-void countDataSosmedFromAkun(listRelasi LR, listParent LP, string usernameAkun)
+int countDataSosmedFromAkun(listRelasi LR, adr_p P)
 {
     int countSosmed = 0;
-    adr_p P = first(LP);
-    while (P != NULL)
+    adr_r R = first(LR);
+    while (R != NULL)
     {
-        if (info(P).username == usernameAkun)
+        if (parent(R) == P)
         {
-            cout << info(P).username << " => ";
-            adr_r R = first(LR);
-            while (R != NULL)
-            {
-                if (parent(R) == P)
-                {
-                    countSosmed++;
-                }
-                R = next(R);
-            }
-            cout << countSosmed << endl; cout << endl;
+            countSosmed++;
         }
-        P = next(P);
+        R = next(R);
     }
+
+    return countSosmed;
 }
 
-void countDataAkunFromSosmed(listRelasi LR, listChild LC, string nameSosmed)
+int countDataAkunFromSosmed(listRelasi LR, adr_c C)
 {
     int countAkun = 0;
-    adr_c C = first(LC);
-    while (C != NULL)
+    adr_r R = first(LR);
+    while (R != NULL)
     {
-        if (info(C).name == nameSosmed)
+        if (child(R) == C)
         {
-            cout << info(C).name << " => ";
-            adr_r R = first(LR);
-            while (R != NULL)
-            {
-                if (child(R) == C)
-                {
-                    countAkun++;
-                }
-                R = next(R);
-            }
-            cout << countAkun << endl; cout << endl;
+            countAkun++;
         }
-        C = next(C);
+        R = next(R);
     }
+    return countAkun;
 }
 
 void countDataSosmedNoAkun(listRelasi LR, listChild LC)
@@ -363,11 +337,11 @@ void countDataAkunNoSosmed(listRelasi LR, listParent LP)
 
 void editRelasi(listRelasi &LR, listParent LP, listChild LC)
 {
-    string nameSosmed, idSosmed, emailAkun, passwordAkun;
+    string nameSosmed, emailAkun, passwordAkun;
     cout << "Masukkan info untuk mencari relasi yang ingin Anda ubah\n";
-    cout << "Masukkan Email: "; cin >> emailAkun;
-    cout << "Masukkan ID Sosmed: "; cin >> idSosmed;
-    adr_r R = findElm_r(LR, emailAkun, idSosmed);
+    cout << "Email: "; cin >> emailAkun;
+    cout << "Nama Sosmed: "; cin >> nameSosmed;
+    adr_r R = findElm_r(LR, emailAkun, nameSosmed);
 
     if (!R) return;
 
@@ -382,15 +356,16 @@ void editRelasi(listRelasi &LR, listParent LP, listChild LC)
         cout << "Nama Sosmed: "; cin >> nameSosmed;
         adr_c C = findElm_c(LC, nameSosmed);
         child(R) = C;
+        cout << "\nRelasi berhasil diubah\n";
     }
     else if (option == 2)
     {
         cout << "Masukkan info Akun\n";
         cout << "Email: "; cin >> emailAkun;
-        cout << "Masukkan Password Akun: "; cin >> passwordAkun;
+        cout << "Password: "; cin >> passwordAkun;
         adr_p P = findElm_p(LP, emailAkun, passwordAkun);
         parent(R) = P;
-
+        cout << "\nRelasi berhasil diubah\n";
     }
     else
     {

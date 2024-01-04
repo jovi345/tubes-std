@@ -27,6 +27,7 @@ int main()
     listRelasi LR;
     createList_r(LR);
     adr_r R;
+    int total;
         /*
             --- DATA INPUT RELATION ---
             Email       : "john@gmail.com", "jane@gmail.com", "budi@gmail.com"
@@ -195,8 +196,8 @@ int main()
         case 9:
             cout << "==== DATA RELASI ====" << endl;
             cout << "Email Akun : "; cin >> emailAkun;
-            cout << "ID Sosmed : "; cin >> idSosmed;
-            R = findElm_r(LR, emailAkun, idSosmed);
+            cout << "Nama Sosmed : "; cin >> nameSosmed;
+            R = findElm_r(LR, emailAkun, nameSosmed);
             if (R != NULL)
             {
                 cout << "\n" << emailAkun << " dan ID " << idSosmed << " memiliki relasi\n" << endl;
@@ -212,13 +213,16 @@ int main()
             option = menu();
             break;
         case 12:
-            cout << "Email Akun : "; cin >> emailAkun;
-            showDataChildBasedOnParent(LR, LP, emailAkun);
+            cout << "Email: "; cin >> emailAkun;
+            cout << "Password: "; cin >> passwordAkun;
+            P = findElm_p(LP, emailAkun, passwordAkun);
+            showDataChildBasedOnParent(LR, P);
             option = menu();
             break;
         case 13:
-            cout << "ID Sosmed : "; cin >> idSosmed;
-            showDataParentBasedOnChild(LR, LC, idSosmed);
+            cout << "Nama Sosmed : "; cin >> nameSosmed;
+            C = findElm_c(LC, nameSosmed);
+            showDataParentBasedOnChild(LR, C);
             option = menu();
             break;
         case 14:
@@ -230,13 +234,18 @@ int main()
             option = menu();
             break;
         case 16:
-            cout << "Masukkan Username Akun : "; cin >> usernameAkun;
-            countDataSosmedFromAkun(LR, LP, usernameAkun);
+            cout << "Email: "; cin >> emailAkun;
+            cout << "Password : "; cin >> passwordAkun;
+            P = findElm_p(LP, emailAkun, passwordAkun);
+            total = countDataSosmedFromAkun(LR, P);
+            cout << info(P).username << " terhubung ke " << total << " sosmed\n";
             option = menu();
             break;
         case 17:
             cout << "Masukkan Nama Sosmed : "; cin >> nameSosmed;
-            countDataAkunFromSosmed(LR, LC, nameSosmed);
+            C = findElm_c(LC, nameSosmed);
+            total = countDataAkunFromSosmed(LR, C);
+            cout << info(C).name << " memiliki " << total << " akun pengguna\n";
             option = menu();
             break;
         case 18:
