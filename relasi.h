@@ -43,7 +43,6 @@ void countDataSosmedFromAkun(listRelasi LR, listParent LP, string usernameAkun);
 void countDataAkunFromSosmed(listRelasi LR, listChild LC, string nameSosmed);
 void countDataSosmedNoAkun(listRelasi LR, listChild LC);
 void countDataAkunNoSosmed(listRelasi LR, listParent LP);
-void editRelasiSosmedFromAkun(adr_r R, adr_c C);
-void editRelasiAkunFromSosmed(adr_r R, adr_p P);
+void editRelasi(listRelasi &LR, listParent LP, listChild LC);
 
 #endif // RELASI_H_INCLUDED

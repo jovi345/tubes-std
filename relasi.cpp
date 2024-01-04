@@ -361,13 +361,39 @@ void countDataAkunNoSosmed(listRelasi LR, listParent LP)
     cout << countAkun << " akun tidak memiliki sosmed.\n" << endl;
 }
 
-void editRelasiSosmedFromAkun(adr_r R, adr_c C)
+void editRelasi(listRelasi &LR, listParent LP, listChild LC)
 {
-    child(R) = C;
-}
+    string nameSosmed, idSosmed, emailAkun, passwordAkun;
+    cout << "Masukkan info untuk mencari relasi yang ingin Anda ubah\n";
+    cout << "Masukkan Email: "; cin >> emailAkun;
+    cout << "Masukkan ID Sosmed: "; cin >> idSosmed;
+    adr_r R = findElm_r(LR, emailAkun, idSosmed);
 
+    if (!R) return;
 
-void editRelasiAkunFromSosmed(adr_r R, adr_p P)
-{
-    parent(R) = P;
+    int option;
+    cout << "Pilih menu berikut\n";
+    cout << "1. Ganti Relasi Akun dengan Sosmed tertentu\n";
+    cout << "2. Ganti Relasi Sosmed dengan Akun tertentu\n";
+    cout << "Pilih menu: "; cin >> option;
+
+    if (option == 1)
+    {
+        cout << "Nama Sosmed: "; cin >> nameSosmed;
+        adr_c C = findElm_c(LC, nameSosmed);
+        child(R) = C;
+    }
+    else if (option == 2)
+    {
+        cout << "Masukkan info Akun\n";
+        cout << "Email: "; cin >> emailAkun;
+        cout << "Masukkan Password Akun: "; cin >> passwordAkun;
+        adr_p P = findElm_p(LP, emailAkun, passwordAkun);
+        parent(R) = P;
+
+    }
+    else
+    {
+        cout << "\nINVALID\n";
+    }
 }
