@@ -54,8 +54,6 @@ int main()
         */
     /** CHILD END **/
 
-    // Nomor yg sudah selesai: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-
     option = menu();
     while (option != 0)
     {
@@ -143,8 +141,8 @@ int main()
         case 6:
             cout << "==== DATA RELASI ====" << endl;
             cout << "Email Akun : "; cin >> emailAkun;
-            cout << "ID Sosmed : "; cin >> idSosmed;
-            R = findElm_r(LR, emailAkun, idSosmed);
+            cout << "Nama Sosmed : "; cin >> nameSosmed;
+            R = findElm_r(LR, emailAkun, nameSosmed);
             if (R != NULL)
             {
                 deleteElm_r(LR, R);
@@ -200,7 +198,7 @@ int main()
             R = findElm_r(LR, emailAkun, nameSosmed);
             if (R != NULL)
             {
-                cout << "\n" << emailAkun << " dan ID " << idSosmed << " memiliki relasi\n" << endl;
+                cout << "\n" << emailAkun << " dan ID " << nameSosmed << " memiliki relasi\n" << endl;
             }
             option = menu();
             break;
