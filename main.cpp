@@ -98,8 +98,9 @@ int main()
             option = menu();
             break;
         case 4:
-            cout << "Email yang ingin dihapus    : "; cin >> emailAkun;
-            cout << "Password yang ingin dihapus : "; cin >> passwordAkun;
+            cout << "\nMasukkan info untuk menghapus akun\n";
+            cout << "Email    : "; cin >> emailAkun;
+            cout << "Password : "; cin >> passwordAkun;
             P = findElm_p(LP, emailAkun, passwordAkun);
             if (P != NULL)
             {
@@ -235,15 +236,21 @@ int main()
             cout << "Email: "; cin >> emailAkun;
             cout << "Password : "; cin >> passwordAkun;
             P = findElm_p(LP, emailAkun, passwordAkun);
-            total = countDataSosmedFromAkun(LR, P);
-            cout << info(P).username << " terhubung ke " << total << " sosmed\n";
+            if (P)
+            {
+                total = countDataSosmedFromAkun(LR, P);
+                cout << info(P).username << " terhubung ke " << total << " sosmed\n";
+            }
             option = menu();
             break;
         case 17:
             cout << "Masukkan Nama Sosmed : "; cin >> nameSosmed;
             C = findElm_c(LC, nameSosmed);
-            total = countDataAkunFromSosmed(LR, C);
-            cout << info(C).name << " memiliki " << total << " pengguna\n";
+            if (C)
+            {
+                total = countDataAkunFromSosmed(LR, C);
+                cout << info(C).name << " memiliki " << total << " pengguna\n";
+            }
             option = menu();
             break;
         case 18:

@@ -175,34 +175,39 @@ void showDataChildBasedOnParent(listRelasi LR, adr_p P)
     if (!P) return;
 
     adr_r R = first(LR);
-    cout << info(P).username << " => [ ";
+    cout << "\nDaftar Sosmed ";
+    cout << info(P).username << ": \n";
+    int i = 0;
     while (R != NULL)
     {
         if (parent(R) == P)
         {
-            cout << info(child(R)).name << ", ";
+            i++;
+            cout << i << ". ";
+            cout << info(child(R)).name << "\n";
         }
         R = next(R);
     }
-    cout << " ]\n";
 }
 
 void showDataParentBasedOnChild(listRelasi LR, adr_c C)
 {
     if (!C) return;
 
-
     adr_r R = first(LR);
-    cout << info(C).name << " => [ ";
+    cout << "\nDaftar Pengguna ";
+    cout << info(C).name << ": \n";
+    int i = 0;
     while (R != NULL)
     {
         if (child(R) == C)
         {
-            cout << info(parent(R)).username << ", ";
+            i++;
+            cout << i << ". ";
+            cout << info(parent(R)).username << "\n";
         }
         R = next(R);
     }
-    cout << " ]\n";
 }
 
 void showDataParentRelasiChild(listRelasi LR, listParent LP)
@@ -222,7 +227,7 @@ void showDataParentRelasiChild(listRelasi LR, listParent LP)
         cout << info(P).email << "\t";
         adr_r R = first(LR);
 
-        int t = 0; // Variabel t hanya untuk membantu pembuatan layout table
+        int t = 0; //For table
 
         while (R != NULL)
         {
@@ -234,8 +239,7 @@ void showDataParentRelasiChild(listRelasi LR, listParent LP)
             R = next(R);
         }
 
-        // Loop ini hanya untuk pembuatan layout table
-        // Awal
+        //Table layout
         while (t != 4)
         {
             cout << "\t";
@@ -243,7 +247,6 @@ void showDataParentRelasiChild(listRelasi LR, listParent LP)
         }
         cout << "|";
         cout << "\n+-------------------------------------------------------+\n";
-        // Akhir
 
         P = next(P);
     }
@@ -254,20 +257,39 @@ void showDataChildRelasiParent(listRelasi LR, listChild LC)
 {
     adr_c C = first(LC);
     cout << "\n============ DATA SOSMED & AKUN ============\n" << endl;
+    cout << "+-------------------------------------------------------+";
+    cout << "\n| No.\tSosmed\t\tUser\t\t\t\t|";
+    cout << "\n+-------------------------------------------------------+\n";
+
+    int i = 0;
     while (C != NULL)
     {
-        cout << info(C).name << " => [ ";
+        i++;
+        cout << "| " << i << ".\t";
+        cout << info(C).name;
         adr_r R = first(LR);
+
+        int t = 0; // For table
+
         while (R != NULL)
         {
             if (child(R) == C)
             {
-                cout << info(parent(R)).username << ", ";
+                cout << "\t" <<info(parent(R)).username;
+                t++;
             }
             R = next(R);
         }
-        cout << "]\n";
         C = next(C);
+
+        //Table layout
+        while (t != 5)
+        {
+            cout << "\t";
+            t++;
+        }
+        cout << "|";
+        cout << "\n+-------------------------------------------------------+\n";
     }
     cout << "\n===========================================\n" << endl;
 }
@@ -383,6 +405,7 @@ void editRelasi(listRelasi &LR, listParent LP, listChild LC)
     {
         cout << "Nama Sosmed: "; cin >> nameSosmed;
         adr_c C = findElm_c(LC, nameSosmed);
+        if (!C) return;
         child(R) = C;
         cout << "\nRelasi berhasil diubah\n";
     }
@@ -392,6 +415,7 @@ void editRelasi(listRelasi &LR, listParent LP, listChild LC)
         cout << "Email: "; cin >> emailAkun;
         cout << "Password: "; cin >> passwordAkun;
         adr_p P = findElm_p(LP, emailAkun, passwordAkun);
+        if (!P) return;
         parent(R) = P;
         cout << "\nRelasi berhasil diubah\n";
     }
